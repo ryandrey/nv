@@ -1,0 +1,8 @@
+torch
+numpy
+tqdm
+tensorboard
+
+pandas
+datasets
+wandb

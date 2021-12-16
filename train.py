@@ -49,7 +49,7 @@ def main(config):
         msd = torch.nn.DataParallel(msd, device_ids=device_ids)
 
     # get function handles of loss and metrics
-    criterion = module_loss.HiFiGAN_loss
+    criterion = module_loss.HiFiGAN_loss()
 
     # build optimizer, learning rate scheduler. delete every lines containing lr_scheduler for disabling scheduler
     trainable_params = filter(lambda p: p.requires_grad, generator.parameters())

@@ -14,7 +14,7 @@ class Batch:
     waveform: torch.Tensor
     waveform_length: torch.Tensor
     melspec: Optional[torch.Tensor] = None
-    waveform_pred = Optional[torch.Tensor] = None
+    waveform_pred: Optional[torch.Tensor] = None
 
     def to(self, device: torch.device) -> 'Batch':
         self.waveform = self.waveform.to(device)

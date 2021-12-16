@@ -1,5 +1,5 @@
 {
-  "name": "hifigan_overfit",
+  "name": "hifigan",
   "n_gpu": 1,
   "arch": {
     "type": "Generator",
@@ -24,14 +24,14 @@
   },
   "data": {
     "train": {
-      "batch_size": 2,
+      "batch_size": 8,
       "num_workers": 5,
       "datasets": [
         {
           "type": "LJSpeechDataset",
           "args": {
             "root": "/home/jupyter/mnt/datasets/LJSpeech-1.1",
-            "limit": 2
+            "size": 16384
           }
         }
       ],
@@ -42,15 +42,16 @@
     }
   },
   "optimizer": {
-    "type": "Adam",
+    "type": "AdamW",
     "args": {
-      "lr": 3e-4
+      "lr": 2e-4,
+      "betas": [0.8, 0.99]
     }
   },
   "lr_scheduler": {
     "type": "ExponentialLR",
     "args": {
-      "gamma": 0.97
+      "gamma": 0.999
     }
   },
   "trainer": {
@@ -62,9 +63,8 @@
     "early_stop": 100,
     "visualize": "wandb",
     "wandb_project": "nv_project",
-    "len_epoch": 100,
+    "len_epoch": 1000,
     "grad_norm_clip": 10,
-    "log_step": 25,
-    "overfit": true
+    "log_step": 50
   }
 }

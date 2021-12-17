@@ -145,7 +145,7 @@ class BaseTrainer:
             "optimizer_g": self.optimizer_g.state_dict(),
             "optimizer_d": self.optimizer_d.state_dict(),
             "mpd_state_dict": self.mpd.state_dict(),
-            "msd_state_dict": self.mpd.state_dict(),
+            "msd_state_dict": self.msd.state_dict(),
             "monitor_best": self.mnt_best,
             "config": self.config,
         }
@@ -182,8 +182,7 @@ class BaseTrainer:
 
         # load optimizer state from checkpoint only when optimizer type is not changed.
         if (
-                checkpoint["config"]["optimizer_d"] != self.config["optimizer_d"] or
-                checkpoint["config"]["optimizer_g"] != self.config["optimizer_g"] or
+                checkpoint["config"]["optimizer"] != self.config["optimizer"] or
                 checkpoint["config"]["lr_scheduler"] != self.config["lr_scheduler"]
         ):
             self.logger.warning(

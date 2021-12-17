@@ -54,7 +54,7 @@ class Trainer(BaseTrainer):
         self.log_step = config["trainer"].get("log_step", 50)
 
         self.train_metrics = MetricTracker(
-            "gen_loss", "disc_loss",
+            "gen_loss", "disc_loss", "mel_loss",
             "grad norm gen", "grad norm mpd", "grad norm msd",
             writer=self.writer
         )
@@ -198,6 +198,7 @@ class Trainer(BaseTrainer):
         #self._clip_grad_norm()
         self.optimizer_g.step()
 
+        metrics.update("mel_loss", loss_mel.item() * 45)
         metrics.update("gen_loss", total_gen_loss.item())
         metrics.update("disc_loss", total_disc_loss.item())
 

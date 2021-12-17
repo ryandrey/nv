@@ -44,18 +44,18 @@
   "optimizer": {
     "type": "AdamW",
     "args": {
-      "lr": 2e-4,
+      "lr": 18e-5,
       "betas": [0.8, 0.99]
     }
   },
   "lr_scheduler": {
     "type": "ExponentialLR",
     "args": {
-      "gamma": 0.999
+      "gamma": 0.94
     }
   },
   "trainer": {
-    "epochs": 100,
+    "epochs": 200,
     "save_dir": "saved/",
     "save_period": 25,
     "verbosity": 2,

@@ -2,6 +2,7 @@ torch
 numpy
 tqdm
 tensorboard
+torchaudio
 
 pandas
 datasets

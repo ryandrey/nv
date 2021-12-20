@@ -51,11 +51,11 @@
   "lr_scheduler": {
     "type": "ExponentialLR",
     "args": {
-      "gamma": 0.94
+      "gamma": 0.98
     }
   },
   "trainer": {
-    "epochs": 200,
+    "epochs": 275,
     "save_dir": "saved/",
     "save_period": 25,
     "verbosity": 2,
